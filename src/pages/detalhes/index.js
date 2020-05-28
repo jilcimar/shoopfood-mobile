@@ -16,7 +16,7 @@ export default function Detalhes () {
     const product = route.params.product;
     const whatsapp = route.params.whatsapp;
     const productId = product.id;
-    const [urlImage, setUrlImage] = useState(['http://192.168.0.107:8000/images/banner-produto.jpg']);
+    const [urlImage, setUrlImage] = useState(['http://192.168.0.107:8000/images/default.png']);
 
 
     async function loadImagem () {

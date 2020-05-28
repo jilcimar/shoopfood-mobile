@@ -4,7 +4,7 @@ import Constants from 'expo-constants';
 export default StyleSheet.create({
     container: {
         flex:1,
-        paddingHorizontal:24,
+        paddingHorizontal:20,
         paddingTop: Constants.statusBarHeight +20,
     },
 
@@ -18,7 +18,7 @@ export default StyleSheet.create({
         padding: 24,
         borderRadius:8,
         backgroundColor: '#fff',
-        marginBottom: 16,
+        marginBottom: 10,
         marginTop:48,
     },
 
@@ -67,8 +67,7 @@ export default StyleSheet.create({
       height: 50,
       width: '48%',
       justifyContent: 'center',
-      alignItems: 'center',
-
+      alignItems: 'center'
     },
 
     actionText: {

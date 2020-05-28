@@ -51,6 +51,14 @@ export default function Produtos () {
         setLoading(false);
     }
 
+    function loadImage(product) {
+        if(product.foto) {
+            return `http://192.168.0.107:8000/storage/${product.foto}`;
+        }
+
+        return `http://192.168.0.107:8000/images/default.png`;
+    }
+
     useEffect(()=> {
         loadProducts();
     }, []);
@@ -62,8 +70,8 @@ export default function Produtos () {
                 Total de <Text style={styles.headerTextBold}> {total} produtos</Text>
                 </Text>
             </View>
-            <Text style={styles.title}> Bem vindo </Text> 
-            <Text style={styles.description}> Escolha um produto e ajude o pequeno comerciante.</Text> 
+            <Text style={styles.title}>Bem vindo(a)</Text> 
+            <Text style={styles.description}>Escolha um produto do nosso cardápio e peça automaticamente pelo WhatsApp</Text> 
             
             <FlatList 
                 data={products}
@@ -74,28 +82,29 @@ export default function Produtos () {
                 onEndReachedThreshold={0.2}
                 renderItem= {({item:product }) => (
                     <View style={styles.product}>
-                        <Text style={styles.productProperty}>Estabelecimento:</Text> 
-                        <Text style={styles.productValue}>Loja Teste</Text> 
-                        <Text style={styles.productProperty}>Produto:</Text> 
-                        <View style={styles.nomeProduto}>
-                            <Text style={styles.productValue}>{product.nome}</Text> 
-                            <Image
-                                source={{
-                                uri: `http://192.168.0.107:8000/storage/${product.foto}`
-                                }}
-                                style={styles.productImage}
-                            />
+                        <View style={styles.boxTituloImagem}>
+                            <View style={styles.boxInfo}>
+                                <Text style={styles.productTitulo}>{product.nome}</Text> 
+                                <Text style={styles.productProperty}>Valor:</Text> 
+                                <Text style={styles.productValue}>{Intl.NumberFormat('pt-BR', 
+                                    {style:'currency', currency:'BRL'}).format(product.valor)}</Text> 
+                            </View>
+                            <View style={styles.boxImage}>
+                                <Image
+                                    source={{
+                                    uri: loadImage(product)
+                                    }}
+                                    style={styles.productImage}
+                                />
+                                <Text style={styles.productCategoria}>{product.categoria.nome}</Text> 
+                            </View>
                         </View>
-                     
-
-                        <Text style={styles.productProperty}>Valor:</Text> 
-                        <Text style={styles.productValue}>{Intl.NumberFormat('pt-BR', 
-                        {style:'currency', currency:'BRL'}).format(product.valor)}</Text> 
-
+            
+                    
                         <TouchableOpacity 
                         style={styles.detailsButton} onPress={() => navigationToDetails(product, whatsapp)}
                         >
-                        <Text style={styles.detailsButtonText}>Ver Detalhes</Text>
+                        <Text style={styles.detailsButtonText}>Ver detalhes e Pedir</Text>
 
                         <Feather name="arrow-right" size={16} color="#e02041"/>
                         </TouchableOpacity>

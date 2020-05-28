@@ -28,7 +28,7 @@ export default StyleSheet.create({
         marginBottom:16,
         marginTop: 48,
         color: '#13131a',
-        fontWeight: 'bold'
+        fontWeight: 'bold',
     },
 
     description: {
@@ -36,10 +36,7 @@ export default StyleSheet.create({
         lineHeight: 24,
         color: '#737380',
         marginBottom:16,
-    },
-
-    productLit: {
-        marginTop: 32
+        textAlign:"justify"
     },
 
     product: {
@@ -63,6 +60,7 @@ export default StyleSheet.create({
     },
 
     detailsButton: {
+        marginTop:24,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center'
@@ -80,10 +78,35 @@ export default StyleSheet.create({
         borderRadius:50,
     },
 
-    nomeProduto: {
+    boxTituloImagem: {
         flexDirection: 'row',
         justifyContent: 'space-between',
+        alignItems: 'flex-start'
+    },
+
+    boxInfo: {
+        flexDirection:'column',
+        flex:1
+    },
+
+
+    productTitulo: {
+        flex:1,
+        fontSize:19,
+        color: '#737380',
+        fontWeight:'700',
+    },
+
+    boxImage: {
+        flexDirection:'column',
         alignItems:'center'
+    },
+    
+    productCategoria : {
+        fontSize: 14,
+        color: '#41414d',
+        fontWeight: 'bold',
+        marginTop:8
     }
 });
 
